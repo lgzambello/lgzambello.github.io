@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--Fonts-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <script src="jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Frances Roy</title>
+</head>
+<body>
+
+    <img src="images/logo.jpg" id="logo">
+
+    <!--Top Options Container-->
+    <div class="tabContainer">
+        <img id="icons" src="images/icons.png">
+        <a href="" class="tab">
+            HOME
+        </a>
+        <a href="" class="tab">
+            ABOUT US
+        </a>
+        <a href="" class="tab">
+            SERVICES
+        </a>
+        <a href="" class="tab">
+            GALLERY
+        </a>
+        <a href="" class="tab">
+            BLOG
+        </a>
+        <a href="" class="tab">
+            CONTACT US
+        </a>
+    </div>
+
+    <ul class="header">
+        <li>
+            <HR width="150" id="line">
+
+        </li>
+        <li>
+            850.279.6510
+            <img>
+        </li>
+        <li>
+            HELLO@FRANCESROY.COM
+            <img>
+        </li>
+    </ul>
+
+    <img class="headerpics" id="sky" src="images/sky.png" onclick="imageSlide('sky')">
+    <img class="headerpics" id="sprouts" src="images/sproutsoranges.png" onclick="imageSlide('sprouts')">
+    <img class="headerpics" id="oranges" src="images/sproutsclose.png" onclick="imageSlide('oranges')">
+    <img class="headerpics" id="car" src="images/car.png" onclick="imageSlide('car')">
+
+    <!--Script to slide images when pressed-->
+    <script>
+        function delay(ms) {
+            var cur_d = new Date();
+            var cur_ticks = cur_d.getTime();
+            var ms_passed = 0;
+            while(ms_passed < ms) {
+                var d = new Date();  // Possible memory leak?
+                var ticks = d.getTime();
+                ms_passed = ticks - cur_ticks;
+                d = null;  // Prevent memory leak?
+            }
+        }
+        var skyPos = 0; //0 is left, 1 is right
+        var sproutsPos = 0;
+        var orangesPos = 0;
+        var carPos = 0;
+        var currentImg = 0; //0 is Car
+        var direction = ["left", "right"];
+        var images = ["car", "oranges", "sprouts", "sky"];
+        function imageSlide(img) {
+            var screenWidth = document.body.clientWidth;
+            var imgPos;
+            if (img == "oranges") {
+                if (orangesPos == 0) {
+                    var left = $("#car").css("left");
+                    var leftInt = parseInt(left.substring(0, left.length - 2));
+                    var newLeft = 1.166*screenWidth - leftInt;
+                    var poop = 1
+                    while (leftInt < newLeft) {
+                        leftInt += 1;
+                        poop += 1;
+                        var test = $("#car").css("left");
+                        $("#car").css("left", leftInt);
+                        delay(1);
+                    }
+                    var poop = "poop";
+                } else {
+                    var newLeft = 1.166*screenWidth - left
+                }
+            } else if (img == "sprouts") {
+                imgPos = sproutsPos;
+            } else if (img == "sky") {
+                imgPos = skyPos;
+            } else if (img == "car") {
+                imgPos = carPos;
+            } else {
+                throw new Error("Incorrect parameter for imageSlide function")
+            }
+        }
+
+        function slide(img, currentLeft, endLeft) {
+
+        }
+    </script>
+
+    <div id="testimonial" class="separator">
+        <hr align="left" width="50%">
+        <hr align="right" width="22%">
+        <div id="testimonialText">
+            Testimonial
+        </div>
+    </div>
+
+    <div class="nameContainer">
+        <div id="clientName">FRANCES ROY</div>
+        <div id="clientDescription"> TESTIMONIAL AND REVIEWS GOES HERE EDOLOR IN REPREHENDERIT IN VOLUPTATE VELIT
+            ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR. EXCEPTEUR SINT OCCAECAT CUPIDATAT
+            NON PROIDENT, SUNT IN CULPA QUI OFFICIA DESERUNT MOLLIT ANIM ID EST LABORUM.
+        </div>
+    </div>
+
+    <div id="services" class="separator">
+        <hr align="left" width="25%">
+        <hr align="right" width="50%">
+        <div id="servicesText">
+            Services
+        </div>
+    </div>
+
+    <div id="pictureContainer">
+        <!--First Column Data-->
+        <div class="column" id="column1">
+            <div id="c1p1">
+                <div class="cpheader" id="c1p1header">
+                    SERVICE
+                </div>
+                <img src="images/circle.png" class="circle" id="circle1">
+                <img src="images/suitCase.png" class="suitCase" id="suitCase1">
+                <div class="cptext" id="c1p1text">
+                    Services duis aute irure dolor in rep rehendrit in voluptater.
+                </div>
+                <button class="serviceButton" id="serviceButton1">
+                    BUTTON
+                </button>
+            </div>
+            <div id="c1p2">
+                <img src="images/river.png" id="riverPic">
+            </div>
+        </div>
+
+        <!--Second Column Data-->
+        <div class="column" id="column2">
+            <div id="c2p1">
+                <img src="images/house.png" id="house">
+            </div>
+
+            <div id="c2p2">
+                <div class="cpheader" id="c2p2header">
+                    SERVICE
+                </div>
+                <img src="images/circle.png" class="circle" id="circle2">
+                <img src="images/suitCase.png" class="suitCase" id="suitCase2">
+                <div class="cptext" id="c2p2text">
+                    Services duit aute irure dolor.
+                </div>
+                <button class="serviceButton" id="serviceButton2">
+                    BUTTON
+                </button>
+            </div>
+
+            <div id="c2p3">
+                <div class="cpheader" id="c2p3header">
+                    SERVICE
+                </div>
+                <img src="images/circle.png" class="circle" id="circle3">
+                <img src="images/bullet.png" id="bullet1">
+                <div class="cptext" id="c2p3text">
+                    Services duis aute irure dolor in rep
+                    rehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excep
+                    teur sint occaecat cupidata.
+                </div>
+                <button class="serviceButton" id="serviceButton3">
+                    BUTTON
+                </button>
+            </div>
+        </div>
+
+        <!--Third Column Data-->
+        <div class="column" id="column3">
+            <div id="c3p1">
+                <div id="c3p1text">
+                    "QUOTE FROM CLIENT ABOUT SERVICE GOES HERE. ABOUT SERVICE GOES HERE. ABOUT SERVICE GOES HERE."
+                </div>
+            </div>
+            <div id="c3p2">
+                <img src="images/shrimp.png" id="shrimp">
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+</html>
